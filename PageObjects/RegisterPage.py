@@ -2,10 +2,16 @@
 from selenium import webdriver
 import time 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class RegisterPage:
     def __init__(self, driver: webdriver.Chrome):  # initializing the driver
         self.driver = driver
+
+        # Implicit wait
+        # Implicit Wait
+        self.driver.implicitly_wait(10)
 
         # Saving Locators in a variable
         self.Signin_button = (By.XPATH, "//a[normalize-space()='Sign in']")
@@ -16,6 +22,9 @@ class RegisterPage:
         self.first_name_textbox = (By.ID, "RegisterInput.FirstName")
         self.last_name_textbox = (By.ID, "RegisterInput.LastName")
         self.register_button = (By.XPATH, "//button[@type='submit']")
+
+        # Error meassge locators
+        self.First_name_error = (By.CLASS_NAME, "text-danger")
 
     def click_signin(self):
         self.driver.find_element(*self.Signin_button).click()
@@ -45,6 +54,11 @@ class RegisterPage:
 
     def click_register(self):
         self.driver.find_element(*self.register_button).click()
+
+    def get_firstname_error_message(self):
+        error = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.First_name_error))
+        return error.text
+
 
     
 
