@@ -8,8 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class RegisterPage:
     def __init__(self, driver: webdriver.Chrome):  # initializing the driver
         self.driver = driver
-
-        # Implicit wait
+        
         # Implicit Wait
         self.driver.implicitly_wait(10)
 
@@ -25,6 +24,7 @@ class RegisterPage:
 
         # Error meassge locators
         self.First_name_error = (By.CLASS_NAME, "text-danger")
+        self.invalid_email_error = (By.CSS_SELECTOR,".text-danger")
 
     def click_signin(self):
         self.driver.find_element(*self.Signin_button).click()
@@ -57,6 +57,10 @@ class RegisterPage:
 
     def get_firstname_error_message(self):
         error = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.First_name_error))
+        return error.text
+
+    def get_invalid_email_error_message(self):
+        error = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.invalid_email_error))
         return error.text
 
 
