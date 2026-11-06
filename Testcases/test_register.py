@@ -3,7 +3,7 @@ import time
 import pytest
 from PageObjects.RegisterPage import RegisterPage
 
-class TestRegister:
+class TestRegister():
 
     # Reusable setup for registration tests
     @pytest.fixture(autouse=True)  #This fixture runs for every test 
@@ -94,6 +94,21 @@ class TestRegister:
 
         #Assertion without Try except
         assert "login" in driver.current_url, "Registration failed with special characters in first name"
+
+    def test_register_with_numbers_and_special_characters_in_last_name(self, driver):
+
+        self.regObj.click_signin()
+        self.regObj.click_create_new_account()
+        self.regObj.enter_email("testemail12345@email.com")
+        self.regObj.enter_password("Test@12345")
+        self.regObj.enter_confirm_password("Test@12345")
+        self.regObj.enter_first_name("Test")
+        self.regObj.enter_last_name("213@#123!@#")  # Numbers and special
+        self.regObj.click_register()
+
+        #Assertion without Try except
+        assert "login" in driver.current_url, "Registration failed with numbers and special characters in last name"
+
 
 
     

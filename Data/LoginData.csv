@@ -1,0 +1,12 @@
+email,password,expected_result
+testersujan@yopmail.com,Testing@123,PASS
+,,FAIL
+,Testing@123,FAIL
+testersujan@yopmail.com,,FAIL
+userexample.com,Testing@123,FAIL
+user@,Testing@123,FAIL
+"user @example.com",Testing@123,FAIL
+testersujan@yopmail.com,Ab@1,FAIL
+testersujan@yopmail.com,"     ",FAIL
+testersujan@yopmail.com,Wrong@123,FAIL
+user@@example.com,Testing@123,FAIL									
