@@ -16,10 +16,25 @@ class TestHomePage():
         self.homeobj = HomePage(self.driver)  # Homepage object
 
 
-    def test_shop_dropdown_functionality(self, driver):
+    def test_shop_dropdown_meat_functionality(self):
         self.homeobj.click_shop_dropdown()
+        time.sleep(2)
         self.homeobj.choose_meat_dropwown()
-        time.sleep(3)
+        time.sleep(2)
+        print("Passed")
+
+        #Assertion
+        assert "4" in self.driver.current_url, "Test Failed"
+        print("Test executed sucessfully")
+
+    def test_shop_dropdown_vegetables_functionality(self):
+        self.homeobj.click_shop_dropdown()
+        time.sleep(2)
+        self.homeobj.choose_vegetables_option()
+        time.sleep(2)
+
+        assert "2" in self.driver.current_url, "Test Failed"
+        
         
 
 

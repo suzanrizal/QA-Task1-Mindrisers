@@ -9,11 +9,11 @@ class HomePage:
         self.driver = driver
 
         # Implicit wait
-        # self.driver.implicitly_wait(10)
+        self.driver.implicitly_wait(10)
         #Locators
         self.dropdown_menu = (By.ID, "navbarDropdown")
         self.meat_option = (By.CSS_SELECTOR, "#navbarSupportedContent > ul > li.nav-item.dropdown > ul > li:nth-child(6) > a")
-
+        self.vegetables_option = (By.CSS_SELECTOR, "li:nth-child(9) a:nth-child(1)")
 
 
 
@@ -27,3 +27,7 @@ class HomePage:
 
     def choose_meat_dropwown(self):
         self.driver.find_element(*self.meat_option).click()
+
+    def choose_vegetables_option(self):
+        self.driver.find_element(*self.vegetables_option).click()
+        
