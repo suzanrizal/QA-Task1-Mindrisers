@@ -16,7 +16,6 @@ class TestHomePage():
         time.sleep(3)
         self.homeobj = HomePage(self.driver)  # Homepage object
 
-
     def test_shop_dropdown_meat_functionality(self):
         time.sleep(5)
         self.homeobj.click_shop_dropdown()
