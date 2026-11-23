@@ -14,11 +14,13 @@ class HomePage:
         self.dropdown_menu = (By.ID, "navbarDropdown")
         self.meat_option = (By.CSS_SELECTOR, "#navbarSupportedContent > ul > li.nav-item.dropdown > ul > li:nth-child(6) > a")
         self.vegetables_option = (By.CSS_SELECTOR, "li:nth-child(9) a:nth-child(1)")
+        self.banana_add_to_cart_button_XPATH = (By.XPATH, "//div[2]//div[1]//div[2]//div[1]//button[1]")
+        self.chicken_add_to_cart_button_XPATH = (By.XPATH, "//div[8]//div[1]//div[2]//div[1]//button[1]")
+        self.potato_add_to_cart_button_XPATH = (By.XPATH, "//div[14]//div[1]//div[2]//div[1]//button[1]")
+        self.strawberry_add_to_cart_button_XPATH = (By.XPATH, "//div[18]//div[1]//div[2]//div[1]//button[1]")
 
-
-
-
-
+        #Alert
+        self.alert_locator = (By.XPATH, "//div[@role='alert']")
 
 
 
@@ -30,4 +32,35 @@ class HomePage:
 
     def choose_vegetables_option(self):
         self.driver.find_element(*self.vegetables_option).click()
+
+    def add_banana_to_cart(self):
+        self.driver.find_element(*self.banana_add_to_cart_button_XPATH).click()
+
+    def add_chicken_to_cart(self):
+        self.driver.find_element(*self.chicken_add_to_cart_button_XPATH).click()
+
+    def add_potato_to_cart(self):
+        self.driver.find_element(*self.potato_add_to_cart_button_XPATH).click()
+
+    def add_strawberry_to_cart(self):
+        self.driver.find_element(*self.strawberry_add_to_cart_button_XPATH).click()
+
+    def get_alert_message(self):
+        actual_message = WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.alert_locator)
+        )
+        return actual_message.text
+
+    # def scroll_to_chicken(self, driver):
+    #     element = driver.find_element(
+    #         *self.chicken_add_to_cart_button_XPATH
+    #     )
+
+    #     print("Element type:", type(element))
+
+    #     driver.execute_script(
+    #         "arguments[0].scrollIntoView({block: 'center'});",
+    #         element
+    #     )
+
+
         
