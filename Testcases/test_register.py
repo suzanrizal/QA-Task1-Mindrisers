@@ -24,9 +24,9 @@ class TestRegister():
         # time.sleep(2)  # Hardcore wait
         self.regObj.click_create_new_account()
         # time.sleep(2)
-        self.regObj.enter_email("Testemail12@email.com")
-        self.regObj.enter_password("Test@12345")
-        self.regObj.enter_confirm_password("Test@12345")
+        self.regObj.enter_email("Testemail1245@email.com")
+        self.regObj.enter_password("Test@1234567")
+        self.regObj.enter_confirm_password("Test@1234567")
         self.regObj.enter_first_name("Test")
         self.regObj.enter_last_name("User")
         self.regObj.click_register()

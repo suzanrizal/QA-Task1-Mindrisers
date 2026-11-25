@@ -1,12 +1,12 @@
 email,password,expected_result
-testersujan@yopmail.com,Testing@123,PASS
+tester@yopmail.com,Tester@1234,PASS
 ,,FAIL
-,Testing@123,FAIL
-testersujan@yopmail.com,,FAIL
-userexample.com,Testing@123,FAIL
-user@,Testing@123,FAIL
-"user @example.com",Testing@123,FAIL
-testersujan@yopmail.com,Ab@1,FAIL
-testersujan@yopmail.com,"     ",FAIL
-testersujan@yopmail.com,Wrong@123,FAIL
-user@@example.com,Testing@123,FAIL									
+,Tester@1234,FAIL
+tester@yopmail.com,,FAIL
+userexample.com,Tester@1234,FAIL
+user@,Tester@1234,FAIL
+"user @example.com",Tester1234,FAIL
+tester@yopmail.com,Ab@1,FAIL
+tester@yopmail.com,"     ",FAIL
+tester@yopmail.com,Wrong@123,FAIL
+user@@example.com,Tester@1234,FAIL									
